@@ -1,6 +1,6 @@
 export default function Navbar(props){
     return(
-        <nav className="fixed w-[100%] z-50">
+        <nav className="absolute top-0 w-[100%] z-50">
             <div className="container mx-auto flex py-5 items-center  justify-between">
                 <div id="brand">
                     <a href="/" className="text-red text-3xl font-black font-Title">Dondar</a>
