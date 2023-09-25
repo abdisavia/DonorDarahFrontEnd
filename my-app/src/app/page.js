@@ -2,6 +2,7 @@ import  Navbar  from "./components/navbar";
 import Card from "./components/card";
 import Dropdown from "./components/dropdown";
 
+
 export default function Home() {
   return (
     <main>
