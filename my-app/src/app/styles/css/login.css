@@ -1,4 +1,25 @@
-.my-component {
-    background-color: #f0f0f0;
-    color: #333;
-  }
+.my-bg {
+  height: 100vh;
+  background: url(../../../../public/img/bgHero.png);
+  background-size: cover;
+  /* background-position: center; */
+}
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.rectangle-36,
+.rectangle-36 * {
+  box-sizing: border-box;
+}
+.rectangle-36 {
+  display: flex;
+  background: #ffffff;
+  border-radius: 30px;
+  width: 516px;
+  height: 268px;
+  margin: auto;
+  /* position: relative; */
+}
