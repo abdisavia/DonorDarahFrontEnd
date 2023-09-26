@@ -3,9 +3,9 @@
 @tailwind utilities;
 @font-face{
     font-family:"Montserrat";
-    src:url("/styles/fonts/Montserrat/Montserrat-ExtraBold.ttf");
+    src:url("./styles/fonts/Montserrat/Montserrat-ExtraBold.ttf");
 }
 @font-face{
     font-family:"Poppins";
-    src:url("/styles/fonts/poppins/Poppins-Regular.ttf");
+    src:url("./styles/fonts/poppins/Poppins-Regular.ttf");
 }
