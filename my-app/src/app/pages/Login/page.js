@@ -1,7 +1,7 @@
 import "../../styles/css/login.css";
 import Navbar from "../../components/navbar";
 
-export default function Kebutuhan() {
+export default function Login() {
   return (
     <main>
       <div className="my-bg">
@@ -17,3 +17,4 @@ export default function Kebutuhan() {
     </main>
   );
 }
+

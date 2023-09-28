@@ -3,6 +3,10 @@ import { useState, useContext, createContext, useReducer} from "react";
 import  Navbar  from "./components/navbar";
 import Card from "./components/card";
 import Dropdown from "./components/dropdown";
+import dynamic from "next/dynamic";
+import Map from "./components/Map";
+
+
 
 const roleContext = createContext(null);
 const roleDispatchContext = createContext(null);
@@ -12,6 +16,7 @@ export default function Home() {
     <main>
       <Herosection/>
       <TutorialSingkatSection />
+      <InformasiPendonorSection />
     </main>
   )
 }
@@ -23,7 +28,7 @@ export function useDispatch(){
 
 function Herosection() {
   return(
-  <section section className="bg-hero-bg bg-no-repeat bg-cover">
+  <section className="bg-hero-bg bg-no-repeat bg-cover">
       <Navbar itemsColor="text-white"/>
         <div className="w-full h-screen overflow-hidden relative z-20 backdrop-blur-sm">
           <div className="container mx-auto w-full h-full flex justify-end items-center">
@@ -80,6 +85,15 @@ function TutorialSingkatSection() {
   )
 }
 
-function showMaps(){
-  
+function InformasiPendonorSection(){
+  return(
+    <section className="w-full h-screen flex items-center">
+      <div className="container mx-auto">
+        <h1 className="text-center font-Title text-3xl my-5">Informasi Pendonor</h1>
+        <div className="w-full h-[35rem] p-5 bg-red rounded-3xl"> 
+          <Map/>
+        </div>
+      </div>
+    </section>
+  )
 }
