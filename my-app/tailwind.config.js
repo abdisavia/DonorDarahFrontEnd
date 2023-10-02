@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-bg': 'url("/img/bgHero.png")',
+        'phone' : 'url("/my-app/public/phone.svg")',
       },
       colors : {
         "red": "#FF3D3D"
