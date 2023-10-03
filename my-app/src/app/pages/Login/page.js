@@ -1,5 +1,5 @@
-import "../../styles/css/login.css";
-import Navbar from "../../components/navbar";
+import "@/_styles/css/login.css";
+import Navbar from "@/_components/navbar";
 
 export default function Login() {
   return (

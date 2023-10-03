@@ -1,6 +1,6 @@
 .my-bg {
   height: 100vh;
-  background: url(../../../../public/img/bgHero.png);
+  background: url("/img/bgHero.png");
   background-size: cover;
   /* background-position: center; */
 }
