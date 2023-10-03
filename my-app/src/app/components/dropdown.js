@@ -1,7 +1,10 @@
 "use client";
 import React,{useState} from "react";
 import Image from "next/image";
+import {useDispatch} from "../page";
+
 export default function Dropdown(props){
+    const dispatch=useDispatch();
     const[selection, setSelection] = useState(props.selection[0]);
     const[isActive,setIsActive] = useState(false);
     return(
@@ -16,7 +19,7 @@ export default function Dropdown(props){
                 </button>
             {isActive && <div className="w-40 border-2 mt-1 rounded-xl absolute bg-white">
                 {
-                props.selection.map(selection => <button className="block w-full h-full text-left px-2 py-2" onClick={e => { setSelection(selection); setIsActive(false)}}>{selection}</button>)
+                props.selection.map(selection => <button className="block w-full h-full text-left px-2 py-2" onClick={e => {{dispatch({type:selection}); setIsActive(false); setSelection(selection)}}}>{selection}</button>)
                 }
             </div>}
             </div>
