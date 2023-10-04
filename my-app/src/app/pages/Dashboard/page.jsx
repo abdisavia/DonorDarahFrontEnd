@@ -1,9 +1,7 @@
 "use client";
-import { useContext, createContext, useReducer} from "react";
-
 import  HeroSection from "./HeroSection";
-import  TutorialSingkatSection from "@/pages/Dashboard/TutorialSingkatSection";
-import  InformasiPendonorSection from "@/pages/Dashboard/InfomasiPendonorSection";
+import  TutorialSingkatSection from "./TutorialSingkatSection";
+import  InformasiPendonorSection from "@/app/pages/Dashboard/InfomasiPendonorSection";
 import Footer from "@/_components/footer";
 
 
