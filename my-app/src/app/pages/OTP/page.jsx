@@ -36,7 +36,6 @@ export default function otp() {
               </form>
             </div>
           </div>
-          {/* <div class="kotak-baru rounded-full"><p>Nomor anda belum terdaftar di sistem harap daftar terlebih dahulu</p></div> */}
         </div>
       </div>
     </main>
