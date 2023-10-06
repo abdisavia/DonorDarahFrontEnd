@@ -1,23 +1,22 @@
 "use client";
-import {useState}from 'react';
+import {useState }from 'react';
 import  axios from 'axios';
 import Navbar from "@/_components/navbar";
 import ErrorMessage from "@/_components/errorMessage";
 
 export default function Register() {
-
-  const [data,setData] = useState({
-    nama:"",
-    telpon:"",
-    golongan_darah:""
-  });
+    const [data,setData] = useState({
+      nama:"",
+      telpon:"",
+      golongan_darah:""
+    });
 
   const [errorMessage, setErrorMessage] = useState("");
 
   async function registrasi(){
     try{
       const response = await axios.post("http://localhost:8000/api/register/auth", data);
-      console.log(response);
+      console.log(response.data)
     }catch(error){
       console.log(error)
     }
@@ -58,7 +57,7 @@ export default function Register() {
             <input type="text" id="telpon"name="telepon" onChange={detect} placeholder="Masukkan Nomor Whatsapp" className="block border-2 w-full mt-2" />
             <label htmlFor="golongan_darah">Golongan Darah:</label>
             <input type="text" id="golongan_darah"name="golongan_darah" onChange={detect} placeholder="masukkan golongan darah" className="block border-2 w-full mt-2"/>
-            <input type="button" value="Submit" onClick={registrasi} className="bg-red w-20 h-10 rounded-3xl mt-2 me-2 text-white"/>
+            <button type="button"  onClick={registrasi} className="bg-red w-20 h-10 rounded-3xl mt-2 me-2 text-white">Submit</button>
             {errorMessage}
           </form>
         </div>
