@@ -1,7 +1,10 @@
-import DashBoard from "./pages/Dashboard/page";
+import DashBoard from "./(pages)/Dashboard/page";
+import RootLayout from "./layout";
 export default function Home() {
   return (
-    <DashBoard/>
+    <RootLayout>
+      <DashBoard/>
+    </RootLayout>
   )
 }
 

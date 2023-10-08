@@ -1,7 +1,7 @@
 "use client";
 import React,{useState} from "react";
 import Image from "next/image";
-import { useDispatch } from "@/app/pages/Dashboard/TutorialSingkatSection";
+import { useDispatch } from "@/app/(pages)/Dashboard/TutorialSingkatSection";
 
 export default function Dropdown(props){
     const dispatch=useDispatch();

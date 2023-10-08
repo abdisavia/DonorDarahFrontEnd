@@ -1,5 +1,6 @@
 "use client";
 import {useState }from 'react';
+import redirect from "next/navigation";
 import  axios from 'axios';
 import Navbar from "@/_components/navbar";
 import ErrorMessage from "@/_components/errorMessage";
@@ -7,7 +8,7 @@ import ErrorMessage from "@/_components/errorMessage";
 export default function Register() {
     const [data,setData] = useState({
       nama:"",
-      telpon:"",
+      telepon:"",
       golongan_darah:""
     });
 
@@ -16,7 +17,7 @@ export default function Register() {
   async function registrasi(){
     try{
       const response = await axios.post("http://localhost:8000/api/register/auth", data);
-      console.log(response.data)
+      redirect('')
     }catch(error){
       console.log(error)
     }
@@ -36,12 +37,13 @@ export default function Register() {
           detectNonNumber = ""
         }else{
           setErrorMessage("");
-          setData((prevData) => ({
-            ...prevData,
-            [name] : [value]
-          }))
         }
       }
+      setData((prevData) => ({
+         ...prevData,
+         [name] : [value]
+       }))
+       console.log(data.nama)
     }
   }
 
@@ -52,7 +54,7 @@ export default function Register() {
           <form className="bg-white w-[400px] h-auto p-5 margin-auto border-2 relative rounded-xl" id="form">
             <h1 className='font-3xl font-Title text-center text-4xl'>Registrasi</h1>
             <label htmlFor="nama">Nama :</label>
-            <input type="text" id="nama"name="nama" onChange={detect} placeholder="Masukkan Nama" className="block border-2 w-full mt-2"/>
+            <input type="text" id="nama" name="nama" onChange={detect} placeholder="Masukkan Nama" className="block border-2 w-full mt-2"/>
             <img src="/img/phone.svg"></img>
             <input type="text" id="telpon"name="telepon" onChange={detect} placeholder="Masukkan Nomor Whatsapp" className="block border-2 w-full mt-2" />
             <label htmlFor="golongan_darah">Golongan Darah:</label>

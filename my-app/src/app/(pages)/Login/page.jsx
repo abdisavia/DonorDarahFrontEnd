@@ -27,8 +27,8 @@ export default function Login() {
                   />
                 </div>
                 <p className="tulisan text-xs">Kode OTP dikirim via Whatsapp</p>
-                <button  className="tombol float-right border-2 bg-black text-xs text-white rounded-full h-8 w-40" ><a href="/pages/OTP">Kirim Kode OTP</a></button>
-                <button className="tombol1 float-right border-2 bg-black text-xs text-white rounded-full h-8 w-40"><a href="/pages/register">Daftar</a></button>
+                <button  className="tombol float-right border-2 bg-black text-xs text-white rounded-full h-8 w-40" ><a href="/OTP">Kirim Kode OTP</a></button>
+                <button className="tombol1 float-right border-2 bg-black text-xs text-white rounded-full h-8 w-40"><a href="/register">Daftar</a></button>
               </form>
             </div>
           </div>

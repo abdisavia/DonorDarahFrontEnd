@@ -1,19 +1,22 @@
-"use client";
+// "use client";
+import DashboardLayout from "./DashboardLayout";
 import  HeroSection from "./HeroSection";
 import  TutorialSingkatSection from "./TutorialSingkatSection";
-import  InformasiPendonorSection from "@/app/pages/Dashboard/InfomasiPendonorSection";
+import  InformasiPendonorSection from "./InfomasiPendonorSection";
+import ArticleSection from "./ArticleSection";
 import Footer from "@/_components/footer";
 
 
 
 export default function Dashboard() {
   return (
-    <main>
+    <DashboardLayout>
       <HeroSection/>
       <TutorialSingkatSection />
       <InformasiPendonorSection />
+      <ArticleSection />
       <Footer/>
-    </main>
+    </DashboardLayout>
   )
 }
 

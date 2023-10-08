@@ -2,7 +2,7 @@
 
 export default function Footer(){
     return(
-        <footer className="bg-red w-full h-auto p-10">
+        <footer className="bg-red w-full h-auto p-10 pt-10">
             <div className="container p-10 px-10 mx-auto">
                 <div className="grid grid-cols-2 text-white text-xl ">
                     <div>
