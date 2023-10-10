@@ -4,3 +4,26 @@
     background-size: cover;
     /* background-position: center; */
 }
+
+.rectangle-37,
+.rectangle-37 * {
+  box-sizing: border-box;
+}
+
+.rectangle-37 {
+  display: flex;
+  background: #ffffff;
+  border-radius: 30px;
+  width: 70vh;
+  height: 55vh;
+  margin: auto;
+  text-align: center;
+  /* position: relative; */
+}
+
+.tombol5 {
+  width: 6.5rem;
+  height: 1.5rem;
+  /* margin: 1px; */
+  margin-right: 2rem;
+}
