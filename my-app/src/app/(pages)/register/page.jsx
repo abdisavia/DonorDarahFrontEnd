@@ -17,7 +17,7 @@ export default function Register() {
   async function registrasi(){
     try{
       const response = await axios.post("http://localhost:8000/api/register/auth", data);
-      redirect('')
+      
     }catch(error){
       console.log(error)
     }
