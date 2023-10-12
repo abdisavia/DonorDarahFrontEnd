@@ -1,16 +1,31 @@
 import Image from "next/image";
 
-export default function Card(props){
+export default function Card({ alt, width, height, imgPath, desc}){
+    function isDescNull(){
+        if(desc == ""){
+            return(
+                <>
+                    <Image src={imgPath} alt={alt} width={width} height={height} />
+                </>
+            )
+        }else{
+            return(
+                <div className=" flex-row">
+                    <div className={` h-[20rem] flex items-center`}>
+                        <Image src={imgPath} alt={alt} width={width} height={height} className=""/>
+                    </div>
+                    <div className=" w-full text-center font-Title rounded-xl bg-white h-[70px] flex justify-center items-center ">
+                        <h1 className="  my-auto text-2xl text-center w-full">{desc}</h1>
+                    </div>
+                </div>
+                );  
+        }
+    }
     return(
         <>
-        <div className="w-[20rem] h-[25rem] px-[2rem] py-[2rem] rounded-xl bg-red flex justify-center items-center">
-            <div className="grid grid-rows-3 h-[20rem] w-[20rem]">
-                <div className=" row-span-2 flex items-center">
-                    <Image src={props.path} alt={props.alt} width={600} height={15} />
-                </div>
-                <div className="relative">
-                    <h1 className="w-full text-center flex justify-center items-center absolute bottom-0 font-Title rounded-xl bg-white h-[70px] my-auto text-2xl">{props.alt}</h1>
-                </div>
+        <div className={` border-black px-[2rem] py-[2rem] w-[350px] h-[450px] rounded-xl bg-red hover:cursor-pointer hover:w-[400px] hover:h-[500px]`}>
+            <div className={`flex justify-center items-center w-full h-full border-yellow-100`}>
+                {isDescNull()}
             </div>
         </div>
         </>

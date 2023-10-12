@@ -1,6 +1,12 @@
 "use client";
+<<<<<<< HEAD:my-app/src/app/pages/register/page.jsx
 import { useState } from "react";
 import axios from "axios";
+=======
+import {useState }from 'react';
+import redirect from "next/navigation";
+import  axios from 'axios';
+>>>>>>> 77b01a4956d370cdb78d7ad7c72874315df3c516:my-app/src/app/(pages)/register/page.jsx
 import Navbar from "@/_components/navbar";
 import Provinsi from "@/_components/dropdown_provinsi";
 import Kabupaten from "@/_components/dropdwon_kabupaten";
@@ -12,6 +18,7 @@ import "@/_styles/css/regis.css";
 import ErrorMessage from "@/_components/errorMessage";
 
 export default function Register() {
+<<<<<<< HEAD:my-app/src/app/pages/register/page.jsx
   const [data, setData] = useState({
     nama: "",
     telpon: "",
@@ -29,6 +36,22 @@ export default function Register() {
       console.log(response.data);
     } catch (error) {
       console.log(error);
+=======
+    const [data,setData] = useState({
+      nama:"",
+      telepon:"",
+      golongan_darah:""
+    });
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function registrasi(){
+    try{
+      const response = await axios.post("http://localhost:8000/api/register/auth", data);
+      redirect('')
+    }catch(error){
+      console.log(error)
+>>>>>>> 77b01a4956d370cdb78d7ad7c72874315df3c516:my-app/src/app/(pages)/register/page.jsx
     }
   }
 
@@ -56,12 +79,20 @@ export default function Register() {
           detectNonNumber = "";
         } else {
           setErrorMessage("");
+<<<<<<< HEAD:my-app/src/app/pages/register/page.jsx
           setData((prevData) => ({
             ...prevData,
             [name]: [value],
           }));
+=======
+>>>>>>> 77b01a4956d370cdb78d7ad7c72874315df3c516:my-app/src/app/(pages)/register/page.jsx
         }
       }
+      setData((prevData) => ({
+         ...prevData,
+         [name] : [value]
+       }))
+       console.log(data.nama)
     }
   };
   const Style = {
@@ -76,6 +107,7 @@ export default function Register() {
     <section>
       <div className="my-bg">
         <Navbar itemsColor="text-white" />
+<<<<<<< HEAD:my-app/src/app/pages/register/page.jsx
         <div className="row">
           <div class="rectangle-37">
             <div className="wraper text-center">
@@ -117,6 +149,20 @@ export default function Register() {
             </div>
           </div>
           {/* <div class="kotak-baru rounded-full"><p>Nomor anda belum terdaftar di sistem harap daftar terlebih dahulu</p></div> */}
+=======
+        <div className="grid place-items-center h-screen border-2 ">
+          <form className="bg-white w-[400px] h-auto p-5 margin-auto border-2 relative rounded-xl" id="form">
+            <h1 className='font-3xl font-Title text-center text-4xl'>Registrasi</h1>
+            <label htmlFor="nama">Nama :</label>
+            <input type="text" id="nama" name="nama" onChange={detect} placeholder="Masukkan Nama" className="block border-2 w-full mt-2"/>
+            <img src="/img/phone.svg"></img>
+            <input type="text" id="telpon"name="telepon" onChange={detect} placeholder="Masukkan Nomor Whatsapp" className="block border-2 w-full mt-2" />
+            <label htmlFor="golongan_darah">Golongan Darah:</label>
+            <input type="text" id="golongan_darah"name="golongan_darah" onChange={detect} placeholder="masukkan golongan darah" className="block border-2 w-full mt-2"/>
+            <button type="button"  onClick={registrasi} className="bg-red w-20 h-10 rounded-3xl mt-2 me-2 text-white">Submit</button>
+            {errorMessage}
+          </form>
+>>>>>>> 77b01a4956d370cdb78d7ad7c72874315df3c516:my-app/src/app/(pages)/register/page.jsx
         </div>
       </div>
     </section>

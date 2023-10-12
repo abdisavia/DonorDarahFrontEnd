@@ -1,3 +1,4 @@
+"use client";
 import {useReducer,createContext,useContext} from "react";
 import Dropdown from "@/_components/dropdown";
 import Card from "@/_components/card";
@@ -35,16 +36,16 @@ export default function TutorialSingkatSection() {
                   </div>
                   {
                     category.kategori == "Pendonor" ?
-                    <div className="flex flex-row justify-center gap-8 items-center">
-                      <Card path="/img/Asset 18.png" alt="Registrasi"/>
-                      <Card path="/img/email.png" alt="Tunggu"/>
-                      <Card path="/img/Frame3.png" alt="Terima Broadcast"/> 
+                    <div className="flex flex-row justify-center gap-8 items-center h-[30rem] ">
+                      <Card width={600} height={15} desc="Registrasi" imgPath="/img/Asset 18.png" alt="Registrasi"/>
+                      <Card width={600} height={15} desc="Tunggu" imgPath="/img/email.png" alt="Tunggu"/>
+                      <Card width={600} height={15} desc="Terima Broadcast" imgPath="/img/Frame3.png" alt="Terima Broadcast"/> 
                     </div> : 
-                    <div className="flex flex-row justify-center gap-8 items-center">
-                    <Card path="/img/Asset 18.png" alt="Registrasi 1"/>
-                    <Card path="/img/email.png" alt="Tunggu 1"/>
-                    <Card path="/img/Frame3.png" alt="Terima Broadcast 1"/> 
-                  </div>
+                    <div className="flex flex-row justify-center gap-8 items-center h-[30rem]">
+                      <Card width={600} height={15} desc="Registrasi1" imgPath="/img/Asset 18.png" alt="Registrasi 1"/>
+                      <Card width={600} height={15} desc="Tunggu1" imgPath="/img/email.png" alt="Tunggu 1"/>
+                      <Card width={600} height={15} desc="Terima Broadcast1" imgPath="/img/Frame3.png" alt="Terima Broadcast 1"/> 
+                    </div>
                   }
                 </roleDispatchContext.Provider>
               </roleContext.Provider>
