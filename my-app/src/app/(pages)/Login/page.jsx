@@ -8,9 +8,9 @@ export default function Login() {
         <Navbar itemsColor="text-white" />
         <div className="row">
           <div class="rectangle-36">
-            <div className="wraper text-center">
-              <label className="text-black font-Title text-[40px]">LOGIN</label>
-              <form>
+            <div className="wraper text-center border-2">
+              <form className="border-2 border-blue-100">
+                <label className="text-black font-Title text-[40px] block">LOGIN</label>
                 <div className="input-container">
                   <img
                     className="input-icon"

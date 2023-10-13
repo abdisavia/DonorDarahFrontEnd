@@ -11,6 +11,7 @@
 }
 
 .rectangle-37 {
+  position: relative;
   display: flex;
   background: #ffffff;
   border-radius: 30px;
@@ -18,7 +19,6 @@
   height: 55vh;
   margin: auto;
   text-align: center;
-  /* position: relative; */
 }
 
 .tombol5 {

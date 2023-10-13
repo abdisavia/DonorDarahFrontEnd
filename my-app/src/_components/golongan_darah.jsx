@@ -3,20 +3,8 @@ import React, { useState, useEffect } from "react";
 
 export default function DropDown() {
   const [selectedOption, setSelectedOption] = useState("");
-  const [golongan, setgolongaList] = useState([]);
-  
-  useEffect(() => {
-    // Mengambil data gologan darah dari API
-    fetch("") // Ganti dengan URL API 
-      .then((response) => response.json())
-      .then((data) => {
-        // Menyimpan data golongan darah ke dalam state
-        setgolongaList(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+
+  const golongan = ["A", "A+", "A-", "B", "B+", "B-", "O", "O+", "O-", "AB", "AB+", "AB-"]
 
   const handleDropdownChange = (e) => {
     setSelectedOption(e.target.value);
@@ -39,9 +27,9 @@ export default function DropDown() {
         onChange={handleDropdownChange}
       >
         <option value="" className="">Golongan Darah</option>
-        {golongan.map((gologan) => (
-          <option key={gologan.id} value={gologan.nama}>
-            {gologan.nama}
+        {golongan.map((golongan) => (
+          <option key={golongan} value={golongan}>
+            {golongan}
           </option>
         ))}
       </select>
