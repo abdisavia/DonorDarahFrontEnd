@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 
 export default function DropDown() {
@@ -7,15 +8,8 @@ export default function DropDown() {
   
   useEffect(() => {
     // Mengambil data kelurahan dari API
-    fetch("") // Ganti dengan URL API
-      .then((response) => response.json())
-      .then((data) => {
-        // Menyimpan data kelurahan ke dalam state
-        setKelurahanList(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    const response = axios.get("http://localhost:8000/api/get/provinsi");
+    console.log(response.data);
   }, []);
 
   const handleDropdownChange = (e) => {

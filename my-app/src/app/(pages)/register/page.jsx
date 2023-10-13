@@ -77,6 +77,7 @@ export default function Register() {
                 <label className="text-black font-Title text-[40px] block">
                   Register
                 </label>
+                <input type="text" name="nama" placeholder="Masukkan nama" onChange = {detect} className="border-black rounded w-[305px] h-[40px] px-10"/>
                 <div className="input-container mb-3">
                   <img
                     className="input-icon"
@@ -86,14 +87,14 @@ export default function Register() {
                     width={20}
                   />
                   <input
-                    className="border-2 border-black rounded w-[305px] h-[40px] px-10"
+                    className="border-black rounded w-[305px] h-[40px] px-10"
                     type="tel"
                     onChange={detect}
                     placeholder="Masukkan No Anda"
-                    name="noTelp"
+                    name="telepon"
                   />
                 </div>
-                <div className="border-2 h-auto w-auto">
+                <div className="border-2 w-auto">
                   <Provinsi />
                   <Kabupaten />
                   <Kecamatan />
