@@ -39,7 +39,7 @@ export default function Register() {
       setErrorMessage(
         <ErrorMessage
           message="tidak boleh ada data yang kosong"
-          kelas="w-[400px] h-auto bg-red text-white  absolute left-[-1px] bottom-[-50px] rounded-xl p-2"
+          kelas="w-full h-auto bg-red text-white  absolute left-[-1px] bottom-[-50px] rounded-xl p-2"
         />
       );
     } else {
@@ -65,13 +65,6 @@ export default function Register() {
        console.log(data.nama)
     }
   };
-  const Style = {
-    // height: "40px", 
-    // width: "150px",
-    position: "relative",
-    top: "-65px",
-    right: "1.5vh" 
-  };
 
   return (
     <section>
@@ -80,10 +73,10 @@ export default function Register() {
         <div className="row">
           <div class="rectangle-37">
             <div className="wraper text-center">
-              <label className="text-black font-Title text-[40px]">
-                Register
-              </label>
-              <form>
+              <form className="border-2 w-full px-2">
+                <label className="text-black font-Title text-[40px] block">
+                  Register
+                </label>
                 <div className="input-container mb-3">
                   <img
                     className="input-icon"
@@ -100,18 +93,18 @@ export default function Register() {
                     name="noTelp"
                   />
                 </div>
-                <div>
+                <div className="border-2 h-auto w-auto">
                   <Provinsi />
+                  <Kabupaten />
+                  <Kecamatan />
+                  <Kelurahan />
+                  <Golongan/>
                 </div>
-                <Kabupaten />
-                <Kecamatan />
-                <Kelurahan />
-                <Golongan/>
-                <div style={Style}>
+                <div className="border-2">
                   <p className="tulisan text-xs">
                     Kode OTP dikirim via Whatsapp
                   </p>
-                  <button className="tombol5 float-right border-2 bg-black text-xs text-white rounded-full h-8 w-40"  onClick={registrasi}>
+                  <button className="float-right border-2 bg-black text-l font-bold p-5 text-white rounded-full "  onClick={registrasi}>
                     <a href="/pages/OTP">Kirim Kode OTP</a>
                   </button>
                 </div>
