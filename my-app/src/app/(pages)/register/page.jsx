@@ -1,40 +1,54 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import axios from "axios";
 import Navbar from "@/_components/navbar";
-import Provinsi from "@/_components/dropdown_provinsi";
-import Kabupaten from "@/_components/dropdwon_kabupaten";
-import Kecamatan from "@/_components/dropdown_kecamatan";
-import Kelurahan from "@/_components/dropdown_kelurahan";
-import Golongan from "@/_components/golongan_darah";
+import Dropdown from "@/_components/Dropdown/dropdown";
 import "@/_styles/css/login.css";
 import "@/_styles/css/regis.css";
 import ErrorMessage from "@/_components/errorMessage";
+import { idProv } from "@/_components/Dropdown/dropdown_provinsi";
+import { idKab } from "@/_components/Dropdown/dropdown_kabupaten";
+import { idKec } from "@/_components/Dropdown/dropdown_kecamatan";
+import { idKelu } from "@/_components/Dropdown/dropdown_kelurahan";
+import { golongan_darah } from "@/_components/Dropdown/golongan_darah";
 
 export default function Register() {
-  const [data, setData] = useState({
-    nama: "",
-    telpon: "",
-    golongan_darah: "",
-  });
-
+  const [data, setData] = useState({});
+  const [session, setSession] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
   async function registrasi() {
     try {
-      const response = await axios.post(
+      setData({
+        "nama" : document.getElementById("nama").value,
+        "telepon" : document.getElementById("telpon").value,
+        "golongan_darah" : golongan_darah,
+        "provinsi_id" : idProv,
+        "kabupaten_id" : idKab,
+        "kecamatan_id" : idKec,
+        "kelurahan_id" : idKelu
+      })
+      await axios.post(
         "http://localhost:8000/api/register/auth",
-        data
+        data,{
+          headers: {
+            "csrf_token" : session.csrf_token,
+            "session_data" : session.session_data
+          }
+        }
       );
-      console.log(response.data);
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
+  }
+
+  const getcsrf = async () => {
+    let cookie = await axios.get("http://localhost:8000/api/senctum/csrf-cookie")
+    setSession(cookie)
   }
 
   const detect = (e) => {
     const { name, value } = e.target;
-
     if (value == "") {
       setErrorMessage(
         <ErrorMessage
@@ -58,11 +72,6 @@ export default function Register() {
           setErrorMessage("");
         }
       }
-      setData((prevData) => ({
-         ...prevData,
-         [name] : [value]
-       }))
-       console.log(data.nama)
     }
   };
 
@@ -71,13 +80,21 @@ export default function Register() {
       <div className="my-bg">
         <Navbar itemsColor="text-white" />
         <div className="row">
-          <div class="rectangle-37">
+          <div className="rectangle-37">
             <div className="wraper text-center">
-              <form className="border-2 w-full px-2">
-                <label className="text-black font-Title text-[40px] block">
+              <form className="w-full px-5 py-50">
+                <h1 className="text-black font-Title text-[40px] block">
                   Register
-                </label>
-                <div className="input-container mb-3">
+                </h1>
+                <input
+                      className="border-2 border-black rounded w-[400px] h-[40px] px-10"
+                      type="tel"
+                      onChange={detect}
+                      placeholder="Masukkan Nama Anda"
+                      id="nama"
+                      name="nama"
+                />
+                <div className="input-container my-3">
                   <img
                     className="input-icon"
                     src="/img/phone.svg"
@@ -86,26 +103,33 @@ export default function Register() {
                     width={20}
                   />
                   <input
-                    className="border-2 border-black rounded w-[305px] h-[40px] px-10"
+                    className="border-2 border-black rounded w-[400px] h-[40px] px-10"
                     type="tel"
                     onChange={detect}
                     placeholder="Masukkan No Anda"
-                    name="noTelp"
+                    id="telpon"
+                    name="telpon"
                   />
                 </div>
-                <div className="border-2 h-auto w-auto">
-                  <Provinsi />
-                  <Kabupaten />
-                  <Kecamatan />
-                  <Kelurahan />
-                  <Golongan/>
+                <div className="h-auto flex justify-center">
+                  <Suspense fallback={<h1>Loading...</h1>}>
+                    <div>
+                      <Dropdown category="provinsi"/> 
+                      <Dropdown category="kabupaten"/>
+                      <div className="flex justify-center">
+                        <Dropdown category="kecamatan"/>
+                        <Dropdown category="kelurahan"/>
+                      </div>
+                      <Dropdown category="golongan_darah"/>
+                    </div>
+                  </Suspense>
                 </div>
-                <div className="border-2">
+                <div className="flex justify-center items-center">
                   <p className="tulisan text-xs">
                     Kode OTP dikirim via Whatsapp
                   </p>
-                  <button className="float-right border-2 bg-black text-l font-bold p-5 text-white rounded-full "  onClick={registrasi}>
-                    <a href="/pages/OTP">Kirim Kode OTP</a>
+                  <button type="button" className="border-2 bg-black text-l font-bold p-3 text-white rounded-full "  onClick={registrasi}>
+                    <a href="/OTP">Kirim Kode OTP</a>
                   </button>
                 </div>
                 {errorMessage}

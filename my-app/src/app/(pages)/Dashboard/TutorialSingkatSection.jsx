@@ -1,8 +1,7 @@
 "use client";
 import {useReducer,createContext,useContext} from "react";
-import Dropdown from "@/_components/dropdown";
 import Card from "@/_components/card";
-
+import TutorialSingkatDropdown from "@/_components/Dropdown/dropdown_tutorialSingkat";
 const roleContext = createContext(null);
 const roleDispatchContext = createContext(null);
 
@@ -24,6 +23,7 @@ export default function TutorialSingkatSection() {
         }else{
           return {kategori: "Akseptor"};
         }
+
       }
       return(
         <section className="w-full h-screen flex items-center">
@@ -32,7 +32,7 @@ export default function TutorialSingkatSection() {
                 <roleDispatchContext.Provider value={dispatch}>
                   <div className="flex items-center mb-14">
                     <h1 className="pe-2 text-xl">Cara menjadi</h1>
-                    <Dropdown selection={["Pendonor", "Akseptor"]}/> 
+                    <TutorialSingkatDropdown/> 
                   </div>
                   {
                     category.kategori == "Pendonor" ?
