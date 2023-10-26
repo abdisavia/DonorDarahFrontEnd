@@ -23,7 +23,7 @@ export default function Card({ alt, width, height, imgPath, desc}){
     }
     return(
         <>
-        <div className={` border-black px-[2rem] py-[2rem] w-[350px] h-[450px] rounded-xl bg-red hover:cursor-pointer hover:w-[400px] hover:h-[500px]`}>
+        <div className={` border-black px-[2rem] py-[2rem] w-[350px] h-[450px] rounded-xl bg-red hover:cursor-pointer hover:w-[400px]  hover:h-[500px] sha`}>
             <div className={`flex justify-center items-center w-full h-full border-yellow-100`}>
                 {isDescNull()}
             </div>
