@@ -6,10 +6,18 @@ export default function DropDown() {
   const [selectedOption, setSelectedOption] = useState("");
   const [kelurahanList, setKelurahanList] = useState([]);
   
+  const getData = async () => {
+    try{
+      const response = axios.get("http://localhost:8000/api/get/provinsi");
+      console.log(response.data);
+    }catch(e){
+      console.log("Error: ", e)
+    }
+  }
+
   useEffect(() => {
     // Mengambil data kelurahan dari API
-    const response = axios.get("http://localhost:8000/api/get/provinsi");
-    console.log(response.data);
+    getData()
   }, []);
 
   const handleDropdownChange = (e) => {
