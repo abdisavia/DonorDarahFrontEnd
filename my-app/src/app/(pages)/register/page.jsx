@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "@/_components/navbar";
 import Dropdown from "@/_components/Dropdown/dropdown";
@@ -11,11 +11,17 @@ import { idKab } from "@/_components/Dropdown/dropdown_kabupaten";
 import { idKec } from "@/_components/Dropdown/dropdown_kecamatan";
 import { idKelu } from "@/_components/Dropdown/dropdown_kelurahan";
 import { golongan_darah } from "@/_components/Dropdown/golongan_darah";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
   const [data, setData] = useState({});
   const [session, setSession] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    getcsrf();
+  },[])
 
   async function registrasi() {
     try {
@@ -28,6 +34,7 @@ export default function Register() {
         "kecamatan_id" : idKec,
         "kelurahan_id" : idKelu
       })
+    console.log(session);
       await axios.post(
         "http://localhost:8000/api/register/auth",
         data,{
@@ -37,13 +44,14 @@ export default function Register() {
           }
         }
       );
+      router.push("/OTP",{scroll:false})
     } catch (error) {
       alert(error);
     }
   }
 
   const getcsrf = async () => {
-    let cookie = await axios.get("http://localhost:8000/api/senctum/csrf-cookie")
+    let cookie = await axios.get("http://localhost:8000/api/get-session-data")
     setSession(cookie)
   }
 
@@ -129,7 +137,7 @@ export default function Register() {
                     Kode OTP dikirim via Whatsapp
                   </p>
                   <button type="button" className="border-2 bg-black text-l font-bold p-3 text-white rounded-full "  onClick={registrasi}>
-                    <a href="/OTP">Kirim Kode OTP</a>
+                      Kirim Kode OTP
                   </button>
                 </div>
                 {errorMessage}
