@@ -9,26 +9,33 @@ export default function Login() {
         <div className="row">
           <div class="rectangle-36">
             <div className="wraper text-center">
-              <form className="">
-                <label className="text-black font-Title text-[40px] block">LOGIN</label>
-                <div className="input-container">
-                  <img
-                    className="input-icon"
-                    src="/img/phone.svg"
-                    alt="Icon"
-                    height={20}
-                    width={20}
-                  />
-                  <input
-                    className="border-2 border-black rounded w-[280px] h-[40px] px-10"
-                    type="tel"
-                    placeholder="Masukkan No Anda"
-                    name="noTelp"
-                  />
+              <form className="w-full h-full p-5 relative">
+                <h1 className="text-black font-Title text-[40px] w-full block relative left-0">LOGIN</h1>
+                <div className="flex justify-center items-center  h-full my-auto">
+                  <div className="">
+                      <div className="input-container ">
+                          <img
+                            className="input-icon "
+                            src="/img/phone.svg"
+                            alt="Icon"
+                            height={30}
+                            width={30}
+                          />
+                          <div className="absolute bg-black h-14  w-14 z-0 rounded-e-3xl rounded-s-md"></div>
+                          <input
+                            className="border border-black rounded w-[500px] h-14 px-[4rem] text-[25px]"
+                            type="text"
+                            placeholder="Masukkan No Anda"
+                            name="noTelp"
+                          />
+                      </div>
+                      <p className="text-l  text-left mt-2 col-start-1 col-span-3 my-auto mx-auto w-full ">Kode OTP dikirim via Whatsapp</p>
+                      <div className=" col-start-3 flex items-center justify-end ">
+                        <a href="/register" className="text-l me-5 font-bold">Daftar</a>
+                        <button  className="  bg-black font-bold text-l text-white rounded-full px-3 py-2 h-14 w-40" ><a href="/OTP">Kirim Kode OTP</a></button>
+                      </div>
+                  </div>
                 </div>
-                <p className="tulisan text-xs">Kode OTP dikirim via Whatsapp</p>
-                <button  className="tombol float-right border-2 bg-black text-xs text-white rounded-full h-8 w-40" ><a href="/OTP">Kirim Kode OTP</a></button>
-                <button className="tombol1 float-right border-2 bg-black text-xs text-white rounded-full h-8 w-40"><a href="/register">Daftar</a></button>
               </form>
             </div>
           </div>
