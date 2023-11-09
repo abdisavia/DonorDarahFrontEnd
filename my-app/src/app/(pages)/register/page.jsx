@@ -6,36 +6,24 @@ import Navbar from "@/_components/navbar";
 import Dropdown from "@/_components/Dropdown/dropdown";
 import "@/_styles/css/login.css";
 import "@/_styles/css/regis.css";
-import ErrorMessage from "@/_components/errorMessage";
-import { idProv } from "@/_components/Dropdown/dropdown_provinsi";
-import { idKab } from "@/_components/Dropdown/dropdown_kabupaten";
-import { idKec } from "@/_components/Dropdown/dropdown_kecamatan";
-import { idKelu } from "@/_components/Dropdown/dropdown_kelurahan";
-import { golongan_darah } from "@/_components/Dropdown/golongan_darah";
-import { useRouter } from "next/navigation";
+import DataDiri from "./DataDiri";
+import Alamat from "./Alamat";
 
 export default function Register() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    "nama" : "",
+  "telepon" : "",
+  "golongan_darah" : "",
+  "provinsi_id" : "",
+  "kabupaten_id" : "",
+  "kecamatan_id" : "",
+  "kelurahan_id" : ""});
   const [session, setSession] = useState({});
-  const [errorMessage, setErrorMessage] = useState("");
-  const router = useRouter();
+  const [buttonNext, setButtonNext] = useState(false)
 
-  useEffect(() => {
-    getcsrf();
-  },[])
-
+  
   async function registrasi() {
-    try {
-      setData({
-        "nama" : document.getElementById("nama").value,
-        "telepon" : document.getElementById("telpon").value,
-        "golongan_darah" : golongan_darah,
-        "provinsi_id" : idProv,
-        "kabupaten_id" : idKab,
-        "kecamatan_id" : idKec,
-        "kelurahan_id" : idKelu
-      })
-    console.log(session);
+    try{
       await axios.post(
         "http://localhost:8000/api/register/auth",
         data,{
@@ -44,120 +32,69 @@ export default function Register() {
             "session_data" : session.session_data
           }
         }
-      );
-      router.push("/OTP",{scroll:false})
-    } catch (error) {
-      alert(error);
+        );
+      } catch (error) {
+        alert(error);
+      }
     }
-  }
-    // =======
-    const [data, setData] = useState({
-      nama: "",
-      telepon: "",
-      golongan_darah: "",
-    });
+    
+    useState({
+      registrasi
+    },[])
 
   const getcsrf = async () => {
     let cookie = await axios.get("http://localhost:8000/api/get-session-data")
     setSession(cookie)
   }
 
-  const detect = (e) => {
-    const { name, value } = e.target;
-    if (value == "") {
-      setErrorMessage(
-        <ErrorMessage
-          message="tidak boleh ada data yang kosong"
-          kelas="w-full h-auto bg-red text-white  absolute left-[-1px] bottom-[-50px] rounded-xl p-2"
-        />
-      );
-    } else {
-      setErrorMessage("");
-      if (name == "telepon") {
-        let detectNonNumber = value.match(/\D/g);
-        if (detectNonNumber != null) {
-          setErrorMessage(
-            <ErrorMessage
-              message="Harap Masukkan Nomor telpon dengan Nomor"
-              kelas="w-[400px] h-auto bg-red text-white  absolute left-[-1px] bottom-[-50px] rounded-xl p-2"
-            />
-          );
-          detectNonNumber = "";
-        } else {
-          setErrorMessage("");
-        }
-        setData((prevData) => ({
-          ...prevData,
-          [name]: [value],
-        }));
-        console.log(data.nama);
-      }
-    }
-  };
+  const handleNextButton = () => {
+    setButtonNext(!buttonNext);
+  }
+
+  
 
   return (
     <section>
       <div className="my-bg">
         <Navbar itemsColor="text-white" />
         <div className="row">
-          <div className="rectangle-37">
-            <div className="wraper text-center">
-              <form className="w-full px-5 py-50">
-                <h1 className="text-black font-Title text-[40px] block">
-                  Register
-                </h1>
-                <input
-                      className="border-2 border-black rounded w-[400px] h-[40px] px-10"
-                      type="tel"
-                      onChange={detect}
-                      placeholder="Masukkan Nama Anda"
-                      id="nama"
-                      name="nama"
-                />
-                <div className="input-container my-3">
-                  <img
-                    className="input-icon"
-                    src="/img/phone.svg"
-                    alt="Icon"
-                    height={20}
-                    width={20}
-                  />
-                  <input
-                    className="border-2 border-black rounded w-[400px] h-[40px] px-10"
-                    type="tel"
-                    onChange={detect}
-                    placeholder="Masukkan No Anda"
-                    id="telpon"
-                    name="telpon"
-                  />
-                </div>
-                <div className="h-auto flex justify-center">
-                  <Suspense fallback={<h1>Loading...</h1>}>
-                    <div>
-                      <Dropdown category="provinsi"/> 
-                      <Dropdown category="kabupaten"/>
-                      <div className="flex justify-center">
-                        <Dropdown category="kecamatan"/>
-                        <Dropdown category="kelurahan"/>
-                      </div>
-                      <Dropdown category="golongan_darah"/>
+            <div className="rectangle-37">
+              <div className="wraper text-center">
+                <form className="w-full px-5 py-50">
+                  <h1 className="text-black font-Title text-[40px] block">
+                    Register
+                  </h1>
+                  { buttonNext ?
+                    <>
+                      <div id="ProgressBar" className="h-5 w-1/2 rounded-full border border-black mx-auto my-2"><div className="bg-red w-full transition-[width] h-full rounded-full"></div></div>
+                      <Alamat />
+                      <button className="border-2 border-red rounded-full text-red py-2 px-3">
+                        Kembali
+                      </button>
+                      <button type="button"  className="border-2 bg-black text-l font-bold p-3 text-white rounded-full ">
+                        Kirim OTP
+                      </button>
+                    </> 
+                    : 
+                    <div className="">
+                      <div id="ProgressBar1" className="h-5 w-1/2 rounded-full border border-black mx-auto my-2"><div className="bg-red w-1/2 h-full rounded-full"></div></div>
+                      <DataDiri data={data} action={(newValue)=>{setData(newValue)}}/>    
                     </div>
-                  </Suspense>
-                </div>
-                <div className="flex justify-center items-center">
-                  <p className="tulisan text-xs">
-                    Kode OTP dikirim via Whatsapp
-                  </p>
-                  <button type="button" className="border-2 bg-black text-l font-bold p-3 text-white rounded-full "  onClick={registrasi}>
-                      Kirim Kode OTP
+                  }
+                  {buttonNext ? "" 
+                  :
+                  <button type="button" onClick={handleNextButton} className="border-2 bg-black text-l font-bold p-3 text-white rounded-full ">
+                        Selanjutnya
                   </button>
-                </div>
-                {errorMessage}
-              </form>
+                  }
+                      
+                      
+                  
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
-
+    </section>
+  );
+}

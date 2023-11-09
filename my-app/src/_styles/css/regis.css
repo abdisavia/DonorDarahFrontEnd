@@ -27,3 +27,23 @@
   /* margin: 1px; */
   margin-right: 2rem;
 }
+
+#ProgressBar div {
+  animation-name: progresBarAnimate;
+  animation-duration: 1000ms;
+}
+
+@keyframes progresBarAnimate{
+  from {width:50%;}
+  to{width:100%;}
+}
+
+#ProgressBar1 div{
+  animation-name:progresBarAnimate1;
+  animation-duration:1000ms;
+}
+
+@keyframes progresBarAnimate1{
+  from{width:0%;}
+  to{width:50%;}
+}

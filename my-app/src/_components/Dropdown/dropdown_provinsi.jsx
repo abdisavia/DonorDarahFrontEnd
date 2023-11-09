@@ -16,7 +16,7 @@ export function setidProv(id){
   idProv = id
 }
 
-export default function DropDownProvinsi() {
+export default function DropDownProvinsi(action) {
   const [selectedOption, setSelectedOption] = useState("");
   const [ProvinsiList, setProvinsiList] = useState([]);
   
@@ -36,8 +36,8 @@ export default function DropDownProvinsi() {
       console.log("error at UseEffect DDProv : "+e.message)
     }
   }, []);
-
   const handleDropdownChange = (e) => {
+    action(e.target.value);
     setidProv(e.target.value);
     setSelectedOption(e.target.value);
   };

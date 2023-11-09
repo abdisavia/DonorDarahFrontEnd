@@ -6,11 +6,11 @@ import DropDownKelurahan from "./dropdown_kelurahan";
 import DropDownKecamatan from "./dropdown_kecamatan";
 import DropDownGolonganDarah from "./golongan_darah";
 
-function Dropdowns({category}) {
+function Dropdowns({category,action}) {
     if(category == "tutorialSingkat"){
         return <TutorialSingkatDropdown selection={selection}/>
     }else if(category == "provinsi"){
-       return <DropDownProvinsi/>
+       return <DropDownProvinsi action={action}/>
     }else if(category == "kabupaten"){
         console.log("Kabupaten Added")
        return <DropDownKabupaten/>
