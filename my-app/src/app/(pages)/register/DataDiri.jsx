@@ -37,7 +37,7 @@ export default function DataDiri({DataDiri, action}){
     };
     
     return(
-        <div id="contentRegister" className="flex justify-center">
+        <div id="contentRegister" className="flex justify-center border">
             <div>
                 <div className="input-container mb-2">
                           <img

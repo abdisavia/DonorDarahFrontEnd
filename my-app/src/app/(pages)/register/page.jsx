@@ -1,7 +1,6 @@
 "use client";
 import { Suspense, useState, useEffect } from "react";
 import axios from "axios";
-// >>>>>>> 77b01a4956d370cdb78d7ad7c72874315df3c516:my-app/src/app/(pages)/register/page.jsx
 import Navbar from "@/_components/navbar";
 import Dropdown from "@/_components/Dropdown/dropdown";
 import "@/_styles/css/login.css";
@@ -51,8 +50,6 @@ export default function Register() {
     setButtonNext(!buttonNext);
   }
 
-  
-
   return (
     <section>
       <div className="my-bg">
@@ -87,9 +84,6 @@ export default function Register() {
                         Selanjutnya
                   </button>
                   }
-                      
-                      
-                  
                 </form>
               </div>
             </div>
