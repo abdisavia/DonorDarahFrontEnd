@@ -5,6 +5,7 @@ import DropDownKabupaten from "./dropdown_kabupaten";
 import DropDownKelurahan from "./dropdown_kelurahan";
 import DropDownKecamatan from "./dropdown_kecamatan";
 import DropDownGolonganDarah from "./golongan_darah";
+import Pekerjaan from "./dropdown_pekerjaan";
 
 function Dropdowns({category,action}) {
     if(category == "tutorialSingkat"){
@@ -20,6 +21,8 @@ function Dropdowns({category,action}) {
        return <DropDownKecamatan/>
     }else if(category == "golongan_darah"){
        return <DropDownGolonganDarah />
+    }else if(category == "pekerjaan"){
+        return <Pekerjaan/>
     }else{
         return "none"
     }
