@@ -18,7 +18,7 @@ export default function Pekerjaan(){
     }
     return(
         <>
-        <select className="h-[40px] w-[400px] border-2 border-stone-950 rounded-md block mb-3"
+        <select className="h-14 w-[400px] border-2 border-stone-950 rounded-md block mb-3 text-[20px] ps-[4rem]"
         value={selectedOption}
         onChange={handleDropdownChange}
         >

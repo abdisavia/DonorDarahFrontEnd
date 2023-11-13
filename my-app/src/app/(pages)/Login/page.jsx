@@ -10,20 +10,21 @@ export default function Login() {
           <div class="rectangle-36">
             <div className="wraper text-center">
               <form className="w-full h-full p-5 relative">
-                <h1 className="text-black font-Title text-[40px] w-full block relative left-0">LOGIN</h1>
-                <div className="flex justify-center items-center  h-full my-auto">
+                <h1 className="text-black font-Title text-[40px] w-full block left-0 absolute">LOGIN</h1>
+                <div className="flex justify-center items-center  h-full my-auto ">
                   <div className="">
                       <div className="input-container ">
+                        <div className="absolute bg-black h-14  w-14 z-0 rounded-e-3xl rounded-s-md flex justify-center items-center">
                           <img
-                            className="input-icon "
+                            className=""
                             src="/img/phone.svg"
                             alt="Icon"
                             height={30}
                             width={30}
                           />
-                          <div className="absolute bg-black h-14  w-14 z-0 rounded-e-3xl rounded-s-md"></div>
+                        </div>
                           <input
-                            className="border border-black rounded w-[500px] h-14 px-[4rem] text-[25px]"
+                            className="border border-black rounded w-[40rem] h-14 ps-[4rem] text-[25px]"
                             type="text"
                             placeholder="Masukkan No Anda"
                             name="noTelp"

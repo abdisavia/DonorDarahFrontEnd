@@ -24,8 +24,8 @@
   display: flex;
   background: #ffffff;
   border-radius: 30px;
-  width: 200px;
-  height: 210px;
+  width: 100vh;
+  height: 65vh;
   margin: auto;
   text-align: center;
   /* position: relative; */
@@ -53,14 +53,6 @@ wraper* {
   position:relative;
   justify:center;
   width: 100%;
-}
-
-.input-icon {
-  position:absolute;
-  box-sizing:border-box;
-  top:20%;
-  left:2%;
-  z-index:10;
 }
 
 .rectangle-36,

@@ -46,8 +46,23 @@ export default function Register() {
     setSession(cookie)
   }
 
-  const handleNextButton = () => {
+  const handleButton = () => {
     setButtonNext(!buttonNext);
+    let progressbar = document.getElementById("ProgressBar").firstElementChild;
+    progressbar.classList.remove("w-1/2");
+    progressbar.classList.remove("animateHalf");
+    progressbar.classList.remove("animateFullHalf");
+    progressbar.classList.add("w-full");
+    progressbar.classList.add("animateFull");
+  }
+
+  const handleKembali = () =>{
+    setButtonNext(!buttonNext);
+    let progressbar = document.getElementById("ProgressBar").firstElementChild;
+    progressbar.classList.remove("animateFull");
+    progressbar.classList.remove("w-full");
+    progressbar.classList.add("w-1/2");
+    progressbar.classList.add("animateFullHalf");
   }
 
   return (
@@ -56,34 +71,40 @@ export default function Register() {
         <Navbar itemsColor="text-white" />
         <div className="row">
             <div className="rectangle-37">
-              <div className="wraper text-center">
-                <form className="w-full px-5 py-50">
-                  <h1 className="text-black font-Title text-[40px] block">
+              <div className="wraper text-center relative">
+                  <h1 className="text-black font-Title text-[40px] block absolute top-[4%]">
                     Register
                   </h1>
+                  <div id="ProgressBar" className="absolute h-5 w-[31rem] rounded-full border border-black top-[17%]"><div className="bg-red w-1/2 animateHalf h-full rounded-full"></div></div>
+                <form className="w-full px-5 py-50 font-Subtitle">
                   { buttonNext ?
                     <>
-                      <div id="ProgressBar" className="h-5 w-1/2 rounded-full border border-black mx-auto my-2"><div className="bg-red w-full transition-[width] h-full rounded-full"></div></div>
                       <Alamat />
-                      <button className="border-2 border-red rounded-full text-red py-2 px-3">
-                        Kembali
-                      </button>
-                      <button type="button"  className="border-2 bg-black text-l font-bold p-3 text-white rounded-full ">
-                        Kirim OTP
-                      </button>
+                      <div className="flex justify-between px-32">
+                        <button type="button" onClick={handleKembali} className="border-2 border-red rounded-full text-red py-2 px-3">
+                          Kembali
+                        </button>
+                        <button type="button"  className="border-2 bg-red text-l font-bold p-3 text-white rounded-e-[25px] rounded-s-[5px] flex justify-center items-center">
+                          Kirim OTP
+                          <img src="/img/ArrowNext.svg" alt="" className="ms-3"/>
+                        </button>
+                      </div>
                     </> 
                     : 
                     <div className="">
-                      <div id="ProgressBar1" className="h-5 w-1/2 rounded-full border border-black mx-auto my-2"><div className="bg-red w-1/2 h-full rounded-full"></div></div>
-                      <DataDiri data={data} action={(newValue)=>{setData(newValue)}}/>    
+                    <DataDiri data={data} action={(newValue)=>{setData(newValue)}}/>    
                     </div>
                   }
-                  {buttonNext ? "" 
-                  :
-                  <button type="button" onClick={handleNextButton} className="border-2 bg-black text-l font-bold p-3 text-white rounded-full ">
-                        Selanjutnya
-                  </button>
-                  }
+                  <div className="flex justify-end px-[5rem]">
+                      {buttonNext ? "" 
+                      :
+                      <button type="button" onClick={handleButton} className="border-2 bg-red text-l font-bold p-3 text-white rounded-e-[25px] rounded-s-[5px] flex justify-center items-center font-Subtitle">
+                            Selanjutnya
+                            <img src="/img/ArrowNext.svg" alt="" className="ps-2"/>
+                      </button>
+                      }
+                  </div>
+                      
                 </form>
               </div>
             </div>
