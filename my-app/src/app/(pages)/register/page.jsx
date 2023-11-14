@@ -1,30 +1,37 @@
 "use client";
 import { Suspense, useState, useEffect } from "react";
 import axios from "axios";
-// >>>>>>> 77b01a4956d370cdb78d7ad7c72874315df3c516:my-app/src/app/(pages)/register/page.jsx
 import Navbar from "@/_components/navbar";
 import Dropdown from "@/_components/Dropdown/dropdown";
 import "@/_styles/css/login.css";
 import "@/_styles/css/regis.css";
-import ErrorMessage from "@/_components/errorMessage";
-import { idProv } from "@/_components/Dropdown/dropdown_provinsi";
-import { idKab } from "@/_components/Dropdown/dropdown_kabupaten";
-import { idKec } from "@/_components/Dropdown/dropdown_kecamatan";
-import { idKelu } from "@/_components/Dropdown/dropdown_kelurahan";
-import { golongan_darah } from "@/_components/Dropdown/golongan_darah";
-import { useRouter } from "next/navigation";
+import DataDiri from "./DataDiri";
+import Alamat from "./Alamat";
 
 export default function Register() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    "nama" : "",
+  "telepon" : "",
+  "golongan_darah" : "",
+  "provinsi_id" : "",
+  "kabupaten_id" : "",
+  "kecamatan_id" : "",
+  "kelurahan_id" : ""});
   const [session, setSession] = useState({});
+<<<<<<< HEAD
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     getcsrf();
   }, []);
+=======
+  const [buttonNext, setButtonNext] = useState(false)
+>>>>>>> 1b7a3ad9116c58ac444ce2c4fae31781b4137a7e
 
+  
   async function registrasi() {
+<<<<<<< HEAD
     try {
       setData({
         nama: document.getElementById("nama").value,
@@ -53,50 +60,57 @@ export default function Register() {
   //   telepon: "",
   //   golongan_darah: "",
   // });
+=======
+    try{
+      await axios.post(
+        "http://localhost:8000/api/register/auth",
+        data,{
+          headers: {
+            "csrf_token" : session.csrf_token,
+            "session_data" : session.session_data
+          }
+        }
+        );
+      } catch (error) {
+        alert(error);
+      }
+    }
+    
+    useState({
+      registrasi
+    },[])
+>>>>>>> 1b7a3ad9116c58ac444ce2c4fae31781b4137a7e
 
   const getcsrf = async () => {
     let cookie = await axios.get("http://localhost:8000/api/get-session-data");
     setSession(cookie);
   };
 
-  const detect = (e) => {
-    const { name, value } = e.target;
-    if (value == "") {
-      setErrorMessage(
-        <ErrorMessage
-          message="tidak boleh ada data yang kosong"
-          kelas="w-full h-auto bg-red text-white  absolute left-[-1px] bottom-[-50px] rounded-xl p-2"
-        />
-      );
-    } else {
-      setErrorMessage("");
-      if (name == "telepon") {
-        let detectNonNumber = value.match(/\D/g);
-        if (detectNonNumber != null) {
-          setErrorMessage(
-            <ErrorMessage
-              message="Harap Masukkan Nomor telpon dengan Nomor"
-              kelas="w-[400px] h-auto bg-red text-white  absolute left-[-1px] bottom-[-50px] rounded-xl p-2"
-            />
-          );
-          detectNonNumber = "";
-        } else {
-          setErrorMessage("");
-        }
-        setData((prevData) => ({
-          ...prevData,
-          [name]: [value],
-        }));
-        console.log(data.nama);
-      }
-    }
-  };
+  const handleButton = () => {
+    setButtonNext(!buttonNext);
+    let progressbar = document.getElementById("ProgressBar").firstElementChild;
+    progressbar.classList.remove("w-1/2");
+    progressbar.classList.remove("animateHalf");
+    progressbar.classList.remove("animateFullHalf");
+    progressbar.classList.add("w-full");
+    progressbar.classList.add("animateFull");
+  }
+
+  const handleKembali = () =>{
+    setButtonNext(!buttonNext);
+    let progressbar = document.getElementById("ProgressBar").firstElementChild;
+    progressbar.classList.remove("animateFull");
+    progressbar.classList.remove("w-full");
+    progressbar.classList.add("w-1/2");
+    progressbar.classList.add("animateFullHalf");
+  }
 
   return (
     <section>
       <div className="my-bg">
         <Navbar itemsColor="text-white" />
         <div className="row">
+<<<<<<< HEAD
           <div className="rectangle-37">
             <div className="wraper text-center">
               <form className="w-full px-5 py-50">
@@ -159,6 +173,48 @@ export default function Register() {
           </div>
         </div>
       </div>
+=======
+            <div className="rectangle-37">
+              <div className="wraper text-center relative">
+                  <h1 className="text-black font-Title text-[40px] block absolute top-[4%]">
+                    Register
+                  </h1>
+                  <div id="ProgressBar" className="absolute h-5 w-[31rem] rounded-full border border-black top-[17%]"><div className="bg-red w-1/2 animateHalf h-full rounded-full"></div></div>
+                <form className="w-full px-5 py-50 font-Subtitle">
+                  { buttonNext ?
+                    <>
+                      <Alamat />
+                      <div className="flex justify-between px-32">
+                        <button type="button" onClick={handleKembali} className="border-2 border-red rounded-full text-red py-2 px-3">
+                          Kembali
+                        </button>
+                        <button type="button"  className="border-2 bg-red text-l font-bold p-3 text-white rounded-e-[25px] rounded-s-[5px] flex justify-center items-center">
+                          Kirim OTP
+                          <img src="/img/ArrowNext.svg" alt="" className="ms-3"/>
+                        </button>
+                      </div>
+                    </> 
+                    : 
+                    <div className="">
+                    <DataDiri data={data} action={(newValue)=>{setData(newValue)}}/>    
+                    </div>
+                  }
+                  <div className="flex justify-end px-[5rem]">
+                      {buttonNext ? "" 
+                      :
+                      <button type="button" onClick={handleButton} className="border-2 bg-red text-l font-bold p-3 text-white rounded-e-[25px] rounded-s-[5px] flex justify-center items-center font-Subtitle">
+                            Selanjutnya
+                            <img src="/img/ArrowNext.svg" alt="" className="ps-2"/>
+                      </button>
+                      }
+                  </div>
+                      
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+>>>>>>> 1b7a3ad9116c58ac444ce2c4fae31781b4137a7e
     </section>
   );
 }

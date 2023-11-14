@@ -5,12 +5,13 @@ import DropDownKabupaten from "./dropdown_kabupaten";
 import DropDownKelurahan from "./dropdown_kelurahan";
 import DropDownKecamatan from "./dropdown_kecamatan";
 import DropDownGolonganDarah from "./golongan_darah";
+import Pekerjaan from "./dropdown_pekerjaan";
 
-function Dropdowns({category}) {
+function Dropdowns({category,action}) {
     if(category == "tutorialSingkat"){
         return <TutorialSingkatDropdown selection={selection}/>
     }else if(category == "provinsi"){
-       return <DropDownProvinsi/>
+       return <DropDownProvinsi action={action}/>
     }else if(category == "kabupaten"){
         console.log("Kabupaten Added")
        return <DropDownKabupaten/>
@@ -20,6 +21,8 @@ function Dropdowns({category}) {
        return <DropDownKecamatan/>
     }else if(category == "golongan_darah"){
        return <DropDownGolonganDarah />
+    }else if(category == "pekerjaan"){
+        return <Pekerjaan/>
     }else{
         return "none"
     }

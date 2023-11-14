@@ -24,8 +24,8 @@
   display: flex;
   background: #ffffff;
   border-radius: 30px;
-  /* width: 200px; */
-  height: 210px;
+  width: 100vh;
+  height: 65vh;
   margin: auto;
   text-align: center;
   /* position: relative; */
@@ -49,34 +49,10 @@ wraper* {
 
 
 .input-container {
-  position: relative;
-  display: inline-block;
-}
-
-.input-icon {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  /* Sesuaikan posisi ikon dari kiri */
-  transform: translateY(-50%);
-}
-
-.tulisan{
-  margin-right: 7rem;
-  margin-top: 0.5rem;
-  margin-bottom: 2px;
-}
-.tombol {
-  width: 6.5rem;
-  height: 2rem;
-  margin: 5px;
-  margin-right: 6.5rem;
-}
-.tombol1 {
-  width: 4.5rem;
-  height: 2rem;
-  margin: 5px;
-  /* margin-right: 7.5rem; */
+  display:flex;
+  position:relative;
+  justify:center;
+  width: 100%;
 }
 
 .rectangle-36,
@@ -88,8 +64,8 @@ wraper* {
   display: flex;
   background: #ffffff;
   border-radius: 30px;
-  width: 500px;
-  height: 210px;
+  width: 100vh;
+  height: 50vh;
   margin: auto;
   text-align: center;
   /* position: relative; */
