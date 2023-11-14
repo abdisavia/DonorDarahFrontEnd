@@ -50,7 +50,7 @@ wraper* {
 
 .input-container {
   display:flex;
-  position:relative;
+  /* position:relative; */
   justify:center;
   width: 100%;
 }
