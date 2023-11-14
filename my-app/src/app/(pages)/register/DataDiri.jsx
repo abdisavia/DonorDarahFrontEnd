@@ -67,40 +67,35 @@ export default function DataDiri({DataDiri, action}){
                           />
                     </div>
                           <input
-                            className="border border-black rounded-xl w-[300px] h-14 ps-[4rem] text-[20px]"
+                            className="border border-black rounded-xl w-[370px] h-14 ps-[4rem] text-[20px]"
                             type="text"
-                            placeholder="Nomor telpon"
+                            placeholder="Masukan nomor anda"
                             name="noTelp"
                           />
                 </div>
                 <Suspense fallback={<h1>Loading...</h1>}>
-                    <div className="h-[3.6rem] flex justify-start relative my-2 font-Subtitle">
-                        <div className="h-full w-14 bg-black absolute rounded-e-[100px] rounded-s-2xl flex items-center justify-center">
-                            <img 
-                            src="/img/icon _Building_.svg"
-                            alt="" 
-                            height={25}
-                            width={25}
-                            />
-                        </div>
-                        <Dropdown category="pekerjaan"/>
-                    </div>
                     <div className="h-auto flex justify-start relative font-Subtitle">
                         <div className="h-full w-14 bg-black absolute rounded-e-[100px] rounded-s-2xl flex items-center justify-center">
+
                             <img
                                 className="input-icon "
-                                src="/img/darah.svg"
+                                src="/img/solar_calendar-bold.svg"
                                 alt="Icon"
                                 height={25}
                                 width={25}
                             /> 
                         </div>
-                        <Dropdown category="golongan_darah"/>
+                        <input
+                            className="border border-black rounded-xl w-[300px] h-14 ps-[4rem] text-[20px]"
+                            type="date"
+                            placeholder="Tanggal lahir"
+                            name="ttl"
+                          />
                     </div>
                 </Suspense>
                 <div className="flex justify-start items-center mt-2">
                     <p className="tulisan text-l">
-                        Kode OTP dikirim via Whatsapp
+                        Harap di isi dengan benar
                     </p>
                 </div>
                 {errorMessage}
