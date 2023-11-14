@@ -22,45 +22,42 @@ export default function Register() {
 
   useEffect(() => {
     getcsrf();
-  },[])
+  }, []);
 
   async function registrasi() {
     try {
       setData({
-        "nama" : document.getElementById("nama").value,
-        "telepon" : document.getElementById("telpon").value,
-        "golongan_darah" : golongan_darah,
-        "provinsi_id" : idProv,
-        "kabupaten_id" : idKab,
-        "kecamatan_id" : idKec,
-        "kelurahan_id" : idKelu
-      })
-    console.log(session);
-      await axios.post(
-        "http://localhost:8000/api/register/auth",
-        data,{
-          headers: {
-            "csrf_token" : session.csrf_token,
-            "session_data" : session.session_data
-          }
-        }
-      );
-      router.push("/OTP",{scroll:false})
+        nama: document.getElementById("nama").value,
+        telepon: document.getElementById("telpon").value,
+        golongan_darah: golongan_darah,
+        provinsi_id: idProv,
+        kabupaten_id: idKab,
+        kecamatan_id: idKec,
+        kelurahan_id: idKelu,
+      });
+      console.log(session);
+      await axios.post("http://localhost:8000/api/register/auth", data, {
+        headers: {
+          csrf_token: session.csrf_token,
+          session_data: session.session_data,
+        },
+      });
+      router.push("/OTP", { scroll: false });
     } catch (error) {
       alert(error);
     }
   }
-    // =======
-    const [data, setData] = useState({
-      nama: "",
-      telepon: "",
-      golongan_darah: "",
-    });
+  // // =======
+  // const [data, setData] = useState({
+  //   nama: "",
+  //   telepon: "",
+  //   golongan_darah: "",
+  // });
 
   const getcsrf = async () => {
-    let cookie = await axios.get("http://localhost:8000/api/get-session-data")
-    setSession(cookie)
-  }
+    let cookie = await axios.get("http://localhost:8000/api/get-session-data");
+    setSession(cookie);
+  };
 
   const detect = (e) => {
     const { name, value } = e.target;
@@ -107,12 +104,12 @@ export default function Register() {
                   Register
                 </h1>
                 <input
-                      className="border-2 border-black rounded w-[400px] h-[40px] px-10"
-                      type="tel"
-                      onChange={detect}
-                      placeholder="Masukkan Nama Anda"
-                      id="nama"
-                      name="nama"
+                  className="border-2 border-black rounded w-[400px] h-[40px] px-10"
+                  type="tel"
+                  onChange={detect}
+                  placeholder="Masukkan Nama Anda"
+                  id="nama"
+                  name="nama"
                 />
                 <div className="input-container my-3">
                   <img
@@ -134,13 +131,13 @@ export default function Register() {
                 <div className="h-auto flex justify-center">
                   <Suspense fallback={<h1>Loading...</h1>}>
                     <div>
-                      <Dropdown category="provinsi"/> 
-                      <Dropdown category="kabupaten"/>
+                      <Dropdown category="provinsi" />
+                      <Dropdown category="kabupaten" />
                       <div className="flex justify-center">
-                        <Dropdown category="kecamatan"/>
-                        <Dropdown category="kelurahan"/>
+                        <Dropdown category="kecamatan" />
+                        <Dropdown category="kelurahan" />
                       </div>
-                      <Dropdown category="golongan_darah"/>
+                      <Dropdown category="golongan_darah" />
                     </div>
                   </Suspense>
                 </div>
@@ -148,8 +145,12 @@ export default function Register() {
                   <p className="tulisan text-xs">
                     Kode OTP dikirim via Whatsapp
                   </p>
-                  <button type="button" className="border-2 bg-black text-l font-bold p-3 text-white rounded-full "  onClick={registrasi}>
-                      Kirim Kode OTP
+                  <button
+                    type="button"
+                    className="border-2 bg-black text-l font-bold p-3 text-white rounded-full "
+                    onClick={registrasi}
+                  >
+                    Kirim Kode OTP
                   </button>
                 </div>
                 {errorMessage}
@@ -157,7 +158,7 @@ export default function Register() {
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
-
+      </div>
+    </section>
+  );
+}
