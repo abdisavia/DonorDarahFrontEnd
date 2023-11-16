@@ -1,11 +1,13 @@
 import {useState,Suspense} from "react";
 import ErrorMessage from "@/_components/errorMessage";
 import Dropdown from "@/_components/Dropdown/dropdown";
+import Pekerjaan  from "@/_components/Dropdown/dropdown_pekerjaan";
+import Darah from "@/_components/Dropdown/golongan_darah";
 import Link from "next/link";
 import Alamat from "./Alamat";
 
 
-export default function DataDiri({DataDiri, action}){
+export default function DataDiri2({DataDiri, action}){
     const [errorMessage, setErrorMessage] = useState("");
 
     const detect = (e) => {
@@ -39,43 +41,35 @@ export default function DataDiri({DataDiri, action}){
     return(
         <div id="contentRegister" className="mx-auto  flex justify-center pt-10">
             <div className="">
-                <div className="input-container mb-2 font-Subtitle">
+                <div className="input-container mb-1 font-Subtitle">
                         <div className="absolute bg-black h-14  w-14 z-0 rounded-e-[100px] rounded-s-2xl flex justify-center items-center">
                             <img
                                 className=""
-                                src="/img/username.svg"
+                                src="/img/Vector.svg"
                                 alt="Icon"
                                 height={25}
                                 width={25}
                             />
                         </div>
-                          <input
-                            className="border border-black rounded-xl w-[500px] h-14 ps-[4rem] text-[20px]"
-                            type="text"
-                            placeholder="Masukkan nama anda"
-                            name="noTelp"
-                          />
+                            <Pekerjaan/>
+                       
                 </div>
-                <div className="input-container mb-2 relative font-Subtitle">
+                <div className="input-container mb-4 relative font-Subtitle">
                     <div className="h-full w-14 bg-black absolute rounded-e-[100px] rounded-s-2xl flex items-center justify-center">
                           <img
                             className="input-icon "
-                            src="/img/phone.svg"
+                            src="/img/darah.svg"
                             alt="Icon"
                             height={30}
                             width={30}
                           />
                     </div>
-                          <input
-                            className="border border-black rounded-xl w-[370px] h-14 ps-[4rem] text-[20px]"
-                            type="text"
-                            placeholder="Masukan nomor anda"
-                            name="noTelp"
-                          />
+                         <Darah/>
                 </div>
                 <Suspense fallback={<h1>Loading...</h1>}>
                     <div className="h-auto flex justify-start relative font-Subtitle">
                         <div className="h-full w-14 bg-black absolute rounded-e-[100px] rounded-s-2xl flex items-center justify-center">
+
                             <img
                                 className="input-icon "
                                 src="/img/solar_calendar-bold.svg"
@@ -87,9 +81,9 @@ export default function DataDiri({DataDiri, action}){
                         <input
                             className="border border-black rounded-xl w-[300px] h-14 ps-[4rem] text-[20px]"
                             type="date"
+                            placeholder="Tanggal lahir"
                             name="ttl"
-                            placeholder="Tanggal Lahir"
-                        />
+                          />
                     </div>
                 </Suspense>
                 <div className="flex justify-start items-center mt-2">

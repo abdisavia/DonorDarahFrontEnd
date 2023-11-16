@@ -14,7 +14,7 @@ export default function Alamat({data}){
             <div className="py-3">
                 <input type="text" name="Alamat" placeholder="Alamat" className="border border-black w-[409px] h-[50px] rounded-md px-2 text-xl font-Subtitle"/>
             </div>
-            <div className="border-2 inline-block font-Subtitle text-[20px]">
+            <div className="inline-block font-Subtitle text-[20px]">
                 <Dropdown category="provinsi" action/>
                 <Dropdown category="kabupaten"/>
                 <div className="grid grid-cols-2 gap-2">
