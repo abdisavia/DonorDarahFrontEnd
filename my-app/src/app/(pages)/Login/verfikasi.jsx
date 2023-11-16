@@ -1,13 +1,14 @@
 import "@/_styles/css/login.css";
 import Navbar from "@/_components/navbar";
 
-export default function verifikasi() {
+export default function Verifikasi() {
+
   return (
-    <main>
+    <>
       <div className="my-bg">
         <Navbar itemsColor="text-white" />
-        <div className="row"><div
-            className="bg-white bg-no-repeat bg-cover bg-center rounded-lg" style={{ width: "35rem", height: "25rem" }}>
+        <div className="row">
+          <div  className="bg-white bg-no-repeat bg-cover bg-center rounded-lg" style={{ width: "35rem", height: "25rem" }}>
             <div className="wraper text-center">
               <form className="w-full h-full p-5 relative">
                 <h1 className="text-black font-Title text-[40px] w-full block left-0 absolute">
@@ -24,12 +25,12 @@ export default function verifikasi() {
                     />
                     <p>Kode OTP dikirim ke nomer :</p>
                     <p className="font-bold">nomer Hp</p>
-                    <form>
+                    <div>
                       <input
                         type="text"
                         placeholder="Masukan Kode OTP"
                         className="mt-1 p-2 border border-black rounded-md w-80 text-center"/>
-                    </form>
+                    </div>
                     <p className="mt-3 mb-5">
                       <a href="#" className="border-b border-black">
                         Kirim ulang{" "}</a>{" "}atau{" "}<a href="#" className="border-b border-black">{" "}ganti nomor</a>
@@ -50,6 +51,6 @@ export default function verifikasi() {
           {/* <div class="kotak-baru rounded-full"><p>Nomor anda belum terdaftar di sistem harap daftar terlebih dahulu</p></div> */}
         </div>
       </div>
-    </main>
+    </>
   );
 }

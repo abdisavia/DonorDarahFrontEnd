@@ -13,7 +13,7 @@ export default function DropDownGolonganDarah() {
   };
   const dropdownStyle = {
     height: "3.5rem", 
-    width: "220px",
+    width: "20rem",
     top: "-63px",
     right: "12vh"   
   };
