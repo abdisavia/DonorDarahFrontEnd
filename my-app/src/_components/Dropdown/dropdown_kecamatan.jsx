@@ -53,7 +53,7 @@ export default function DropDownKecamatan() {
   }
 
   return (
-      <select className="h-[50px] w-[200px]  border-2 border-stone-950 text-left rounded-md flex mb-3"
+      <select className="h-[50px] w-full  border-2 border-stone-950 text-left rounded-md flex mb-3"
       
         id="pilihan"
         name="pilihan"

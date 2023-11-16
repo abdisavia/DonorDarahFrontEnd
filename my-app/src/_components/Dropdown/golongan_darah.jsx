@@ -11,16 +11,10 @@ export default function DropDownGolonganDarah() {
     golongan_darah = e.target.value;
     setSelectedOption(e.target.value);
   };
-  const dropdownStyle = {
-    height: "3.5rem", 
-    width: "220px",
-    top: "-63px",
-    right: "12vh"   
-  };
 
   return (
-      <select className="dropdown border-2 border-stone-950 text-left rounded-md text-[20px] ps-[4rem]"
-      style={dropdownStyle} 
+      <select className="border-2 border-stone-950 text-left rounded-md text-[20px] ps-[4rem] w-full h-14"
+      
         id="pilihan"
         name="pilihan"
         value={selectedOption}

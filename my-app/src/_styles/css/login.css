@@ -49,9 +49,9 @@ wraper* {
 
 
 .input-container {
-  display:flex;
-  position:relative;
-  justify:center;
+  /* display:flex; */
+  /* position:relative; */
+  /* justify:center; */
   width: 100%;
 }
 
