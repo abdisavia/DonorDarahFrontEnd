@@ -51,15 +51,21 @@ export default function Register() {
   };
 
   const handleButton = () => {
+    const pagi = document.getElementById("pagination").childNodes[buttonNext + 1];
     setButtonNext(buttonNext + 1);
     console.log(buttonNext);
     formRendering();
-    let progressbar = document.getElementById("ProgressBar").firstElementChild;
-    progressbar.classList.remove("w-1/2");
-    progressbar.classList.remove("animateHalf");
-    progressbar.classList.remove("animateFullHalf");
-    progressbar.classList.add("w-full");
-    progressbar.classList.add("animateFull");
+    pagi.classList.remove("border-2");
+    pagi.classList.remove("border-red");
+    pagi.classList.add("bg-red");
+  };
+  
+  const handleKembali = () => {
+    const pagi = document.getElementById("pagination").childNodes[buttonNext];
+    setButtonNext(buttonNext - 1);
+    pagi.classList.remove("bg-red");
+    pagi.classList.add("border-2");
+    pagi.classList.add("border-red");
   };
 
   const nextButton = () => {
@@ -161,14 +167,6 @@ export default function Register() {
     }
   }
 
-  const handleKembali = () => {
-    setButtonNext(buttonNext - 1);
-    let progressbar = document.getElementById("ProgressBar").firstElementChild;
-    progressbar.classList.remove("animateFull");
-    progressbar.classList.remove("w-full");
-    progressbar.classList.add("w-1/2");
-    progressbar.classList.add("animateFullHalf");
-  };
 
   return (
     <section>
@@ -180,12 +178,12 @@ export default function Register() {
               <h1 id="title" className="text-black font-Title text-[40px] block absolute top-[4%]">
                 Register
               </h1>
-              <div
-                id="ProgressBar"
-                className="absolute h-5 w-[31rem] rounded-full border border-black top-[17%]"
-              >
-                <div className="bg-red w-1/2 animateHalf h-full rounded-full"></div>
-              </div>
+                  <div className=" flex justify-center items-center  mx-auto absolute top-[17%]" id="pagination">
+                    <div className="w-14 h-3 bg-red me-2 rounded-full"></div>
+                    <div className="w-14 h-3  rounded-full border-2 border-red me-2"></div>
+                    <div className="w-14 h-3  rounded-full border-2 border-red me-2"></div>
+                    <div className="w-14 h-3  rounded-full border-2 border-red"></div>
+                  </div>
               <form className="w-full px-5 py-50 font-Subtitle mt-10">
                 { formRendering() }
                 <div className="flex justify-end px-[5rem]">

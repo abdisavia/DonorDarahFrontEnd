@@ -38,7 +38,7 @@ export default function DataDiri({DataDiri, action}){
     
     return(
         <div id="contentRegister" className="mx-auto  flex justify-center pt-10">
-            <div className="">
+            <div className="w-auto">
                 <div className="input-container mb-2 font-Subtitle">
                         <div className="absolute bg-black h-14  w-14 z-0 rounded-e-[100px] rounded-s-2xl flex justify-center items-center">
                             <img
@@ -50,7 +50,7 @@ export default function DataDiri({DataDiri, action}){
                             />
                         </div>
                           <input
-                            className="border border-black rounded-xl w-[500px] h-14 ps-[4rem] text-[20px]"
+                            className="border border-black rounded-xl w-full h-14 ps-[4rem] text-[20px]"
                             type="text"
                             placeholder="Masukkan nama anda"
                             name="noTelp"
@@ -73,7 +73,7 @@ export default function DataDiri({DataDiri, action}){
                             name="noTelp"
                           />
                 </div>
-                <Suspense fallback={<h1>Loading...</h1>}>
+                    <label htmlFor="" className="pe-[24rem] text-left ">Tanggal Lahir : </label>
                     <div className="h-auto flex justify-start relative font-Subtitle">
                         <div className="h-full w-14 bg-black absolute rounded-e-[100px] rounded-s-2xl flex items-center justify-center">
                             <img
@@ -85,13 +85,12 @@ export default function DataDiri({DataDiri, action}){
                             /> 
                         </div>
                         <input
-                            className="border border-black rounded-xl w-[300px] h-14 ps-[4rem] text-[20px]"
+                            className="border border-black rounded-xl w-[250px] h-14 ps-[4rem] text-[20px]"
                             type="date"
                             name="ttl"
                             placeholder="Tanggal Lahir"
                         />
                     </div>
-                </Suspense>
                 <div className="flex justify-start items-center mt-2">
                     <p className="tulisan text-l">
                         Harap di isi dengan benar

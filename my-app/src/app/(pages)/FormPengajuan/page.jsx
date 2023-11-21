@@ -47,23 +47,19 @@ export default function FormPengajuan() {
 
   const handleButton = () => {
     setButtonNext(buttonNext + 1);
-    console.log(buttonNext);
-    const pagi = document.getElementById("pagination").childNodes[1];
+    const pagi = document.getElementById("pagination").childNodes[buttonNext + 1];
+    console.log(pagi);
     pagi.classList.remove("border-2");
     pagi.classList.remove("border-red");
     pagi.classList.add("bg-red");
-    console.log(pagi);
   }
   
   const handleKembali = () =>{
     const pagi0 = document.getElementById("pagination").childNodes[buttonNext];
     setButtonNext(buttonNext - 1);
-    console.log(buttonNext)
-    const pagi = document.getElementById("pagination").childNodes[buttonNext - 1];
     pagi0.classList.remove("bg-red");
     pagi0.classList.add("border-2");
     pagi0.classList.add("border-red");
-    console.log(pagi);
   }
 
   const Buttons = () => {

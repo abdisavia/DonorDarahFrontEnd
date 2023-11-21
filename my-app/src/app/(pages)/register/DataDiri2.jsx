@@ -67,6 +67,7 @@ export default function DataDiri2({DataDiri, action}){
                          <Darah/>
                 </div>
                 <Suspense fallback={<h1>Loading...</h1>}>
+                <label htmlFor="" className="pe-[13rem] text-left  ">Tanggal terakhir donor : </label>
                     <div className="h-auto flex justify-start relative font-Subtitle">
                         <div className="h-full w-14 bg-black absolute rounded-e-[100px] rounded-s-2xl flex items-center justify-center">
 
