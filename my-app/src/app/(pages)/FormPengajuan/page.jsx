@@ -112,8 +112,8 @@ export default function FormPengajuan() {
       <div className="my-bg">
         <Navbar itemsColor="text-white" />
         <div className="row">
-            <div className="w-[70%] h-[80%] bg-white rounded-xl">
-              <div className="flex items-end justify-center w-full h-full text-center relative pb-[4%]">
+            <div className="w-[70%] h-[85%] bg-white rounded-xl">
+              <div className="flex items-end justify-center w-full h-full text-center relative pb-[0%]">
                 <div className="absolute top-[4%] w-full">
                   <h1 className="text-black font-Title text-[40px] block top-[4%] ">
                     Form ajuan kebutuhan darah

@@ -137,7 +137,7 @@ export default function Register() {
                 </button>
 
                 <a 
-                  href="/Login"
+                  href="/verfikasi"
                   type="button"
                   className="border-2 bg-red text-l font-bold p-3 text-white rounded-e-[25px] rounded-s-[5px] flex justify-center items-center"
                 >
