@@ -4,10 +4,14 @@ import Modal from "react-modal";
 const MyModal = ({ isOpen, onClose, errorMessage }) => {
   const modalStyle = {
     content: {
-      width: "300px", // Sesuaikan dengan lebar yang Anda inginkan
+      width: "300px",
+      height:"10rem", // Sesuaikan dengan lebar yang Anda inginkan
       margin: "auto", // Tengahkan modal
       borderRadius: "8px", // Atur sudut melengkung
       padding: "20px", // Atur ruang dalam modal
+      display: 'flex',
+      flexDirection: 'column', // Tampilkan elemen dalam kolom
+      alignItems: 'center', // Tengahkan elemen secara horizontal
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.5)", // Atur latar belakang overlay
@@ -23,11 +27,12 @@ const MyModal = ({ isOpen, onClose, errorMessage }) => {
     >
       <h2 style={{ marginBottom: "10px" }}>Error!</h2>
       <p>{errorMessage}</p>
-      <button
+      <button className="flex items-center"
         onClick={onClose}
         style={{
-          padding: "8px 16px",
-          backgroundColor: "#3498db",
+          margin:"auto",
+          padding: "8px 16px ",
+          backgroundColor: "red",
           color: "#fff",
           border: "none",
           borderRadius: "4px",
