@@ -5,7 +5,7 @@ export default function Navbar(props){
         <nav className="absolute top-0 w-[100%] z-50">
             <div className="container mx-auto flex py-5 items-center  justify-between">
                 <div id="brand">
-                    <a href="/" className="text-red text-3xl font-black font-Title">Dondar</a>
+                    <a href="/" className="text-red text-3xl font-black font-Title animate__animated animate__pulse animate__animated animate__infinite	infinite">Dondar</a>
                 </div>
                 <div id="items" className={["font-Subtitle font-regular", props.itemsColor].join(" ")}>
                     <a href="/FormPengajuan" className="px-[15px] py-[15px] relative after:absolute hover:after:border-b-2 after:border-red after:w-full after:h-full after:left-0 after:bottom-0">Kebutuhan</a>

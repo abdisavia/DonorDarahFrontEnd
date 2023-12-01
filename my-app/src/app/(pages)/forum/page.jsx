@@ -31,13 +31,15 @@ export default function Forum() {
         <div className="mt-20 pt-20 ">
           <div className="rectangle-36 border-2 border-red rounded-lg w-[40rem] h-[3rem] ps-[4rem]">
             <div className="flex items-top justify-left">
-              <input
+              <textarea
                 value={Text}
                 onChange={(e) => setText(e.target.value)}
                 style={{
                   fontWeight: bold ? "bold" : "normal",
                   fontStyle: italic ? "italic" : "normal",
                   textDecoration: underline ? "underline" : "none",
+                  resize:"none",
+                  height:"13rem"
                 }}
                 className="border-transparent rounded-lg w-[35rem] h-[5rem] ps-[2rem] text-[20px] mt-[2rem] ml-[-2rem]"
                 type="text"
