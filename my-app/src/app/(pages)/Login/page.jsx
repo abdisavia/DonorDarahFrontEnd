@@ -34,7 +34,7 @@ export default function Login() {
                       <div className="absolute right-0 bottom-0 flex items-center justify-end space-x-5 p-5">
                         <a href="/register" className="text-l font-bold text-red border-b border-red">Daftar Akun</a>
                         <button className="font-bold text-l text-white rounded-lg px-3 py-2 h-12 w-40 bg-red">
-                          <a href="/">Kirim Kode OTP</a>
+                          <a href="/OTP">Kirim Kode OTP</a>
                         </button>
                       </div>
 

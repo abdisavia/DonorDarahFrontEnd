@@ -116,7 +116,7 @@ export default function Verifikasi3() {
                         className="border-1 bg-red text-l font-bold p-2 text-white rounded-e-[25px] rounded-s-[5px] flex items-center font-Subtitle"
                         onClick={()=>{verification();handleSubmit()}}
                       >
-                        Kirim
+                       <a href="/">Kirim</a>
                         <img src="/img/ArrowNext.svg" alt="" className="ps-2" />
                       </button>
                       <MyModal
